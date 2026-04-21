@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição — Prime Council</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:      #0D0D0D;
+  --navy-mid:  #2C2A27;
+  --gold:      #9A7B4A;
+  --gold-light:#BFA06B;
+  --gold-pale: #EDE0C8;
+  --cream:     #F4F1EB;
+  --cream-dark:#DDD9D0;
+  --rule-soft: #EAE6DE;
+  --white:     #FFFFFF;
+  --paper:     #FFFFFF;
+  --text:      #0D0D0D;
+  --muted:     #7A7570;
+  --error:     #B91C1C;
+  --success:   #15803D;
+  --border:    #DDD9D0;
+  --radius:    3px;
+  --shadow:    0 1px 4px rgba(0,0,0,0.05);
+  --shadow-lg: 0 4px 24px rgba(0,0,0,0.08);
+  --serif:     'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:      'DM Sans', system-ui, sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 0 64px;
+}
+
+/* ─── DOUBLE RULE ────────────────────────────────────────────── */
+.header-rule{ height:3px; background:var(--navy); }
+.header-rule-gold{ height:1px; background:var(--gold-light); }
+
+/* ─── DARK HERO ───────────────────────────────────────────────── */
+.irfe-hero{
+  width:100%;
+  align-self:stretch;
+  background:var(--navy);
+  position:relative;
+  overflow:hidden;
+}
+.irfe-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(
+    -45deg,
+    transparent, transparent 60px,
+    rgba(191,160,107,0.02) 60px,
+    rgba(191,160,107,0.02) 61px
+  );
+  pointer-events:none;
+}
+.irfe-hero-inner{
+  max-width:600px;
+  margin:0 auto;
+  padding:0 24px 2rem;
+  position:relative;
+  z-index:1;
+}
+
+/* ─── HEADER (dentro do hero) ────────────────────────────────── */
+header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:1.5rem 0 1.25rem;
+  border-bottom:1px solid rgba(221,217,208,0.1);
+}
+.logo{
+  width:38px; height:38px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(191,160,107,0.2);
+  border-radius:2px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.bars{
+  display:flex;
+  align-items:flex-end;
+  gap:3px;
+  height:18px;
+}
+.bars span{
+  display:block;
+  background:var(--gold-light);
+  border-radius:1px;
+  width:3px;
+}
+.hdr h1{
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:600;
+  color:#FFFFFF;
+  letter-spacing:0.04em;
+  line-height:1.2;
+}
+.hdr p{
+  font-size:11px;
+  color:rgba(244,241,235,0.38);
+  margin-top:2px;
+  letter-spacing:0.03em;
+}
+.chip{
+  display:inline-block;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:0.1em;
+  padding:1px 6px;
+  border-radius:2px;
+  text-transform:uppercase;
+  margin-left:6px;
+  vertical-align:middle;
+}
+
+/* ─── TÍTULO DO EVENTO ────────────────────────────────────────── */
+.irfe-event-title{ padding-top:1.25rem; margin-top:1rem; }
+.irfe-eyebrow{
+  display:block;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:10px;
+}
+.irfe-event-h2{
+  font-family:var(--serif);
+  font-size:clamp(1.4rem, 3.2vw, 2rem);
+  font-weight:600;
+  color:#FFFFFF;
+  line-height:1.15;
+  letter-spacing:0.01em;
+}
+.irfe-event-h2 em{ font-style:italic; color:var(--gold-light); }
+.irfe-event-meta{
+  margin-top:12px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.irfe-event-meta span{
+  font-size:10.5px;
+  color:rgba(255,255,255,0.30);
+  letter-spacing:0.04em;
+}
+.irfe-event-meta span strong{ color:rgba(255,255,255,0.62); font-weight:500; }
+.irfe-h-sep{
+  display:inline-block;
+  width:1px; height:12px;
+  background:rgba(255,255,255,0.10);
+  vertical-align:middle;
+}
+
+
+.progress-wrap{
+  width:100%;
+  max-width:600px;
+  padding:28px 24px 0;
+}
+.progress-steps{
+  display:flex;
+  align-items:center;
+  gap:0;
+  position:relative;
+}
+.progress-line{
+  flex:1;height:1px;
+  background:var(--border);
+  transition:background 0.4s;
+}
+.progress-line.done{background:var(--gold)}
+.step-dot{
+  width:32px;height:32px;
+  border-radius:50%;
+  border:1.5px solid var(--border);
+  background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:all 0.3s;
+  position:relative;
+}
+.step-dot.active{
+  border-color:var(--gold);
+  background:var(--gold);
+}
+.step-dot.done{
+  border-color:var(--gold);
+  background:var(--gold);
+}
+.step-dot span{
+  font-size:11px;font-weight:500;
+  color:var(--muted);
+  transition:color 0.3s;
+}
+.step-dot.active span,.step-dot.done span{color:var(--white)}
+.step-dot.done span{display:none}
+.step-dot.done::after{
+  content:'✓';
+  font-size:13px;color:var(--white);
+  font-weight:500;
+}
+.step-labels{
+  display:flex;
+  justify-content:space-between;
+  margin-top:8px;
+}
+.step-label{
+  font-size:10px;
+  font-weight:400;
+  letter-spacing:0.08em;
+  color:var(--muted);
+  text-transform:uppercase;
+  text-align:center;
+  width:32px;
+  transition:color 0.3s;
+}
+.step-label.active{color:var(--gold);font-weight:500}
+.step-label.done{color:var(--navy)}
+
+.card{
+  width:100%;
+  max-width:600px;
+  background:var(--white);
+  box-shadow:var(--shadow);
+  border-radius:var(--radius);
+  margin-top:20px;
+  overflow:hidden;
+}
+.step-panel{
+  display:none;
+  padding:36px 36px 32px;
+  animation:fadeIn 0.3s ease;
+}
+.step-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.step-header{margin-bottom:28px}
+.step-num{
+  font-size:10px;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:500;
+  margin-bottom:6px;
+}
+.step-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;
+  font-weight:600;
+  color:var(--navy);
+  line-height:1.2;
+}
+.step-sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:6px;
+  font-weight:300;
+  line-height:1.5;
+}
+
+.field{margin-bottom:20px;position:relative}
+.field label{
+  display:block;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--navy);
+  margin-bottom:8px;
+}
+.field label .req{color:var(--gold);margin-left:2px}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  font-weight:300;
+  color:var(--text);
+  background:var(--white);
+  outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  appearance:none;
+  -webkit-appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:36px;
+  cursor:pointer;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--navy);
+  box-shadow:0 0 0 3px rgba(13,27,42,0.06);
+}
+.field input.error,
+.field select.error{border-color:var(--error)}
+.field .err-msg{
+  font-size:11px;
+  color:var(--error);
+  margin-top:5px;
+  display:none;
+}
+.field.has-error .err-msg{display:block}
+
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.other-wrap{
+  display:none;
+  margin-top:10px;
+}
+.other-wrap.visible{display:block}
+
+.radio-group{display:flex;flex-direction:column;gap:10px}
+.radio-opt{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 14px;
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:border-color 0.2s,background 0.2s;
+}
+.radio-opt:hover{border-color:var(--navy-mid);background:var(--cream)}
+.radio-opt.selected{border-color:var(--gold);background:rgba(196,145,58,0.05)}
+.radio-opt input[type=radio]{display:none}
+.radio-dot{
+  width:16px;height:16px;
+  border-radius:50%;
+  border:1.5px solid var(--border);
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color 0.2s;
+}
+.radio-opt.selected .radio-dot{border-color:var(--gold)}
+.radio-dot::after{
+  content:'';width:8px;height:8px;
+  border-radius:50%;background:var(--gold);
+  opacity:0;transition:opacity 0.2s;
+}
+.radio-opt.selected .radio-dot::after{opacity:1}
+.radio-label{font-size:13px;font-weight:300;color:var(--text)}
+
+.pix-box{
+  background:var(--cream);
+  border:1.5px solid var(--cream-dark);
+  border-radius:var(--radius);
+  padding:24px;
+  margin-bottom:24px;
+}
+.pix-header{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:16px;
+}
+.pix-icon{
+  width:36px;height:36px;
+  background:var(--navy);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.pix-icon svg{width:18px;height:18px}
+.pix-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:600;
+  color:var(--navy);
+}
+.pix-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid var(--cream-dark);
+  gap:12px;
+}
+.pix-row:last-child{border-bottom:none}
+.pix-row-label{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.pix-row-value{
+  font-size:14px;
+  font-weight:500;
+  color:var(--navy);
+  text-align:right;
+  flex:1;
+}
+.pix-copy-btn{
+  background:none;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:4px 10px;
+  font-size:11px;
+  font-family:'DM Sans',sans-serif;
+  font-weight:500;
+  color:var(--navy);
+  cursor:pointer;
+  transition:all 0.2s;
+  white-space:nowrap;
+}
+.pix-copy-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.pix-copy-btn.copied{background:var(--success);color:var(--white);border-color:var(--success)}
+
+.pix-qr{
+  margin:16px auto 0;
+  width:140px;height:140px;
+  background:var(--white);
+  border:1.5px solid var(--cream-dark);
+  border-radius:var(--radius);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:8px;
+}
+.pix-qr-placeholder{
+  font-size:10px;
+  color:var(--muted);
+  text-align:center;
+  letter-spacing:0.06em;
+  line-height:1.5;
+}
+
+.pix-note{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:14px;
+  line-height:1.6;
+  font-style:italic;
+}
+
+.upload-box{
+  border:1.5px dashed var(--border);
+  border-radius:var(--radius);
+  padding:28px;
+  text-align:center;
+  cursor:pointer;
+  transition:border-color 0.2s,background 0.2s;
+  position:relative;
+}
+.upload-box:hover{border-color:var(--navy);background:var(--cream)}
+.upload-box.has-file{border-color:var(--gold);background:rgba(196,145,58,0.04)}
+.upload-box input[type=file]{
+  position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;
+}
+.upload-icon{
+  font-size:28px;color:var(--muted);margin-bottom:8px;
+}
+.upload-text{font-size:13px;font-weight:400;color:var(--navy)}
+.upload-sub{font-size:11px;color:var(--muted);margin-top:4px}
+.upload-preview{
+  display:none;
+  align-items:center;gap:10px;
+  text-align:left;
+}
+.upload-preview.visible{display:flex}
+.upload-preview-name{
+  font-size:13px;font-weight:500;color:var(--navy);
+  flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.upload-preview-remove{
+  font-size:11px;color:var(--error);cursor:pointer;
+  border:none;background:none;font-family:'DM Sans',sans-serif;
+  white-space:nowrap;
+}
+
+.confirm-check{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:14px 16px;
+  background:var(--cream);
+  border-radius:var(--radius);
+  border:1.5px solid var(--cream-dark);
+  cursor:pointer;
+  margin-bottom:24px;
+}
+.confirm-check input[type=checkbox]{
+  width:16px;height:16px;
+  flex-shrink:0;margin-top:2px;
+  accent-color:var(--navy);
+  cursor:pointer;
+}
+.confirm-check-text{
+  font-size:12px;
+  font-weight:400;
+  color:var(--navy);
+  line-height:1.6;
+}
+
+.btn-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 36px 28px;
+  border-top:1px solid var(--cream-dark);
+}
+.btn-back{
+  background:none;
+  border:none;
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  font-weight:400;
+  color:var(--muted);
+  cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 0;
+  transition:color 0.2s;
+}
+.btn-back:hover{color:var(--navy)}
+.btn-back svg{width:14px;height:14px}
+.btn-next{
+  background:var(--navy);
+  color:var(--white);
+  border:none;
+  padding:13px 32px;
+  border-radius:var(--radius);
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-next:hover{background:var(--navy-mid);transform:translateY(-1px)}
+.btn-next:active{transform:translateY(0)}
+.btn-next:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-next svg{width:14px;height:14px}
+.btn-next.gold{background:var(--gold)}
+.btn-next.gold:hover{background:var(--gold-light)}
+
+.success-screen{
+  display:none;
+  width:100%;max-width:600px;
+  background:var(--white);
+  box-shadow:var(--shadow);
+  border-radius:var(--radius);
+  margin-top:20px;
+  padding:52px 36px;
+  text-align:center;
+  animation:fadeIn 0.4s ease;
+}
+.success-screen.visible{display:block}
+.success-icon{
+  width:64px;height:64px;
+  background:var(--navy);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+}
+.success-icon svg{width:28px;height:28px}
+.success-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:600;
+  color:var(--navy);
+  margin-bottom:12px;
+}
+.success-sub{
+  font-size:14px;font-weight:300;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:380px;margin:0 auto;
+}
+.success-divider{
+  width:40px;height:1px;
+  background:var(--gold);
+  margin:24px auto;
+}
+.success-steps{
+  text-align:left;
+  background:var(--cream);
+  border-radius:var(--radius);
+  padding:20px 24px;
+  margin-top:20px;
+}
+.success-steps-title{
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:500;
+  margin-bottom:14px;
+}
+.success-step{
+  display:flex;gap:12px;align-items:flex-start;
+  margin-bottom:12px;
+}
+.success-step:last-child{margin-bottom:0}
+.success-step-num{
+  width:20px;height:20px;
+  background:var(--navy);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.success-step-num span{font-size:10px;font-weight:500;color:var(--white)}
+.success-step-text{font-size:13px;font-weight:300;color:var(--text);line-height:1.5}
+
+.spinner{
+  display:none;
+  width:18px;height:18px;
+  border:2px solid rgba(255,255,255,0.3);
+  border-top-color:var(--white);
+  border-radius:50%;
+  animation:spin 0.7s linear infinite;
+}
+.spinner.visible{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.time-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(196,145,58,0.12);
+  border:1px solid rgba(196,145,58,0.3);
+  border-radius:100px;
+  padding:5px 12px;
+  font-size:11px;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  font-weight:500;
+  margin-bottom:20px;
+}
+.lgpd-note{
+  font-size:11px;color:var(--muted);
+  text-align:center;
+  max-width:400px;margin:0 auto;
+  line-height:1.6;
+  padding:0 36px;
+}
+.lgpd-note a{color:var(--navy);text-decoration:underline}
+
+@media(max-width:600px){
+  .step-panel{padding:28px 20px 24px}
+  .btn-nav{padding:16px 20px 24px}
+  .row-2{grid-template-columns:1fr}
+  .success-screen{padding:40px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="header-rule"></div>
+<div class="header-rule-gold"></div>
+
+<!-- ══ DARK HERO ════════════════════════════════════════════════ -->
+<div class="irfe-hero">
+  <div class="irfe-hero-inner">
+
+    <header>
+      <div class="logo">
+        <div class="bars">
+          <span style="height:9px"></span>
+          <span style="height:14px"></span>
+          <span style="height:19px"></span>
+        </div>
+      </div>
+      <div class="hdr">
+        <h1>Prime Council <span class="chip">Inscrição</span></h1>
+        <p>Workshop Presencial · Campinas, SP · 29 de Maio de 2026</p>
+      </div>
+    </header>
+
+    <div class="irfe-event-title">
+      <span class="irfe-eyebrow">Processo de Inscrição · Workshop Prime Council</span>
+      <h2 class="irfe-event-h2">Do Diagnóstico à <em>Execução Estratégica</em></h2>
+      <div class="irfe-event-meta">
+        <span><strong>29 de Maio de 2026</strong></span>
+        <span class="irfe-h-sep"></span>
+        <span>08h30 às 11h00</span>
+        <span class="irfe-h-sep"></span>
+        <span>Campinas · SP</span>
+        <span class="irfe-h-sep"></span>
+        <span><strong>20 vagas</strong> · Presencial</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="progress-wrap">
+  <div class="time-badge">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    4 etapas · aproximadamente 5 minutos
+  </div>
+  <div class="progress-steps">
+    <div class="step-dot active" id="dot1"><span>1</span></div>
+    <div class="progress-line" id="line1"></div>
+    <div class="step-dot" id="dot2"><span>2</span></div>
+    <div class="progress-line" id="line2"></div>
+    <div class="step-dot" id="dot3"><span>3</span></div>
+    <div class="progress-line" id="line3"></div>
+    <div class="step-dot" id="dot4"><span>4</span></div>
+  </div>
+  <div class="step-labels">
+    <div class="step-label active">ID</div>
+    <div class="step-label">Empresa</div>
+    <div class="step-label">Perfil</div>
+    <div class="step-label">Pagamento</div>
+  </div>
+</div>
+
+<div class="card" id="mainCard">
+
+  <!-- STEP 1: IDENTIFICAÇÃO -->
+  <div class="step-panel active" id="step1">
+    <div class="step-header">
+      <div class="step-num">Etapa 1 de 4</div>
+      <div class="step-title">Identificação</div>
+      <div class="step-sub">Dados para contato e confirmação da inscrição.</div>
+    </div>
+    <div class="field" id="f-nome">
+      <label>Nome completo<span class="req">*</span></label>
+      <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name">
+      <div class="err-msg">Informe seu nome completo.</div>
+    </div>
+    <div class="field" id="f-email">
+      <label>E-mail<span class="req">*</span></label>
+      <input type="email" id="email" placeholder="seu@email.com.br" autocomplete="email">
+      <div class="err-msg">Informe um e-mail válido.</div>
+    </div>
+    <div class="field" id="f-whatsapp">
+      <label>WhatsApp<span class="req">*</span></label>
+      <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel" maxlength="15">
+      <div class="err-msg">Informe um número válido com DDD.</div>
+    </div>
+    <!-- [SEGURANÇA 2] Honeypot anti-bot: campo invisível para humanos, preenchido automaticamente por bots -->
+    <input type="text" name="website" id="hp_website" autocomplete="off"
+           style="display:none;position:absolute;left:-9999px;opacity:0;height:0;width:0;"
+           tabindex="-1" aria-hidden="true">
+  </div>
+  <div class="step-panel" id="step2">
+    <div class="step-header">
+      <div class="step-num">Etapa 2 de 4</div>
+      <div class="step-title">Sua empresa</div>
+      <div class="step-sub">Informações para contextualizar seu perfil empresarial.</div>
+    </div>
+    <div class="field" id="f-empresa">
+      <label>Empresa<span class="req">*</span></label>
+      <input type="text" id="empresa" placeholder="Razão social ou nome fantasia">
+      <div class="err-msg">Informe o nome da empresa.</div>
+    </div>
+    <div class="row-2">
+      <div class="field" id="f-cidade">
+        <label>Cidade<span class="req">*</span></label>
+        <input type="text" id="cidade" placeholder="Campinas">
+        <div class="err-msg">Informe a cidade.</div>
+      </div>
+      <div class="field" id="f-estado">
+        <label>Estado<span class="req">*</span></label>
+        <select id="estado">
+          <option value="">Selecione</option>
+          <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+          <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+          <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+          <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+          <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+          <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+          <option selected>SP</option><option>SE</option><option>TO</option>
+        </select>
+        <div class="err-msg">Selecione o estado.</div>
+      </div>
+    </div>
+    <div class="field" id="f-cargo">
+      <label>Posição na empresa<span class="req">*</span></label>
+      <select id="cargo">
+        <option value="">Selecione</option>
+        <option>Proprietário / Fundador</option>
+        <option>Sócio</option>
+        <option>CEO / Diretor Executivo</option>
+        <option>Diretor (área)</option>
+        <option>Outro</option>
+      </select>
+      <div class="err-msg">Selecione sua posição.</div>
+    </div>
+    <div class="field" id="f-setor">
+      <label>Setor<span class="req">*</span></label>
+      <select id="setor">
+        <option value="">Selecione</option>
+        <option>Agronegócio</option>
+        <option>Construção Civil</option>
+        <option>Educação</option>
+        <option>Saúde</option>
+        <option>Indústria</option>
+        <option>Logística e Transporte</option>
+        <option>Serviços Profissionais</option>
+        <option>Tecnologia</option>
+        <option>Varejo e Comércio</option>
+        <option>Outro</option>
+      </select>
+      <div class="err-msg">Selecione o setor.</div>
+    </div>
+  </div>
+
+  <!-- STEP 3: QUALIFICAÇÃO -->
+  <div class="step-panel" id="step3">
+    <div class="step-header">
+      <div class="step-num">Etapa 3 de 4</div>
+      <div class="step-title">Perfil estratégico</div>
+      <div class="step-sub">As respostas determinam a elegibilidade. Seja preciso.</div>
+    </div>
+
+    <div class="field" id="f-colaboradores">
+      <label>Número de colaboradores<span class="req">*</span></label>
+      <select id="colaboradores">
+        <option value="">Selecione</option>
+        <option>Até 50</option>
+        <option>51 a 100</option>
+        <option>101 a 200</option>
+        <option>Acima de 200</option>
+      </select>
+      <div class="err-msg">Selecione o porte da equipe.</div>
+    </div>
+
+    <div class="field" id="f-momento">
+      <label>Momento atual da empresa<span class="req">*</span></label>
+      <div class="radio-group" id="rg-momento">
+        <label class="radio-opt"><input type="radio" name="momento" value="estruturando"><div class="radio-dot"></div><span class="radio-label">Estruturando processos e gestão</span></label>
+        <label class="radio-opt"><input type="radio" name="momento" value="crescendo"><div class="radio-dot"></div><span class="radio-label">Crescendo, mas com gargalos claros</span></label>
+        <label class="radio-opt"><input type="radio" name="momento" value="expansao"><div class="radio-dot"></div><span class="radio-label">Estável, buscando expansão estratégica</span></label>
+        <label class="radio-opt"><input type="radio" name="momento" value="reestruturacao"><div class="radio-dot"></div><span class="radio-label">Em reestruturação ou transição</span></label>
+      </div>
+      <div class="err-msg">Selecione o momento da empresa.</div>
+    </div>
+
+    <div class="field" id="f-desafio">
+      <label>Principal desafio estratégico<span class="req">*</span></label>
+      <div class="radio-group" id="rg-desafio">
+        <label class="radio-opt"><input type="radio" name="desafio" value="pessoas"><div class="radio-dot"></div><span class="radio-label">Gestão de pessoas e cultura</span></label>
+        <label class="radio-opt"><input type="radio" name="desafio" value="crescimento"><div class="radio-dot"></div><span class="radio-label">Crescimento e novos mercados</span></label>
+        <label class="radio-opt"><input type="radio" name="desafio" value="processos"><div class="radio-dot"></div><span class="radio-label">Processos, eficiência e custos</span></label>
+        <label class="radio-opt"><input type="radio" name="desafio" value="sucessao"><div class="radio-dot"></div><span class="radio-label">Sucessão ou transição societária</span></label>
+        <label class="radio-opt" id="desafio-outro-opt"><input type="radio" name="desafio" value="outro"><div class="radio-dot"></div><span class="radio-label">Outro</span></label>
+      </div>
+      <div class="other-wrap" id="desafio-outro-wrap">
+        <input type="text" id="desafio-outro" placeholder="Descreva brevemente (máx. 80 caracteres)" maxlength="80">
+      </div>
+      <div class="err-msg">Selecione o principal desafio.</div>
+    </div>
+
+    <div class="field" id="f-gestao">
+      <label>Estrutura de gestão atual<span class="req">*</span></label>
+      <div class="radio-group" id="rg-gestao">
+        <label class="radio-opt"><input type="radio" name="gestao" value="centralizada"><div class="radio-dot"></div><span class="radio-label">Centralizada no proprietário ou fundador</span></label>
+        <label class="radio-opt"><input type="radio" name="gestao" value="diretores"><div class="radio-dot"></div><span class="radio-label">Com diretores, sem conselho formal</span></label>
+        <label class="radio-opt"><input type="radio" name="gestao" value="governanca"><div class="radio-dot"></div><span class="radio-label">Já possui algum modelo de governança</span></label>
+        <label class="radio-opt"><input type="radio" name="gestao" value="estruturando"><div class="radio-dot"></div><span class="radio-label">Em processo de estruturação</span></label>
+      </div>
+      <div class="err-msg">Selecione a estrutura de gestão.</div>
+    </div>
+
+    <div class="field" id="f-faturamento">
+      <label>Faturamento anual aproximado<span class="req">*</span></label>
+      <select id="faturamento">
+        <option value="">Selecione</option>
+        <option>Até R$ 1 milhão</option>
+        <option>R$ 1M a R$ 5M</option>
+        <option>R$ 5M a R$ 20M</option>
+        <option>R$ 20M a R$ 60M</option>
+        <option>Acima de R$ 60M</option>
+        <option>Prefiro não informar</option>
+      </select>
+      <div class="err-msg">Selecione a faixa de faturamento.</div>
+    </div>
+
+    <div class="field">
+      <label>Como ficou sabendo do evento?</label>
+      <select id="como_soube">
+        <option value="">Selecione (opcional)</option>
+        <option>Indicação de conhecido</option>
+        <option>LinkedIn</option>
+        <option>Instagram</option>
+        <option>WhatsApp</option>
+        <option>Outro</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- STEP 4: PAGAMENTO -->
+  <div class="step-panel" id="step4">
+    <div class="step-header">
+      <div class="step-num">Etapa 4 de 4</div>
+      <div class="step-title">Garantia de vaga</div>
+      <div class="step-sub">Realize o pagamento e envie o comprovante para concluir.</div>
+    </div>
+
+    <div class="pix-box">
+      <div class="pix-header">
+        <div class="pix-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#BFA06B" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="pix-title">Pagamento via PIX</div>
+      </div>
+
+      <div class="pix-row">
+        <span class="pix-row-label">Valor</span>
+        <span class="pix-row-value" id="pix-valor">R$ 2.000,00</span>
+      </div>
+      <div class="pix-row">
+        <span class="pix-row-label">Chave PIX</span>
+        <span class="pix-row-value" id="pix-chave">[CHAVE_PIX]</span>
+        <button class="pix-copy-btn" onclick="copyPix()">Copiar</button>
+      </div>
+      <div class="pix-row">
+        <span class="pix-row-label">Favorecido</span>
+        <span class="pix-row-value">Prime Council — CNPJ [XX.XXX.XXX/XXXX-XX]</span>
+      </div>
+      <div class="pix-row">
+        <span class="pix-row-label">Prazo</span>
+        <span class="pix-row-value">Vaga reservada somente após confirmação</span>
+      </div>
+
+      <div class="pix-qr" id="pix-qr-wrap">
+        <!-- Substitua por: <img src="data:image/png;base64,..." width="120"> -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#DDD9D0" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3z M17 17h3v3h-3z"/></svg>
+        <div class="pix-qr-placeholder">QR Code PIX<br>substituir aqui</div>
+      </div>
+      <div class="pix-note">Após realizar o pagamento, envie o comprovante no campo abaixo. A confirmação da inscrição será feita em até 24h pelo WhatsApp informado.</div>
+    </div>
+
+    <div class="field" id="f-comprovante">
+      <label>Comprovante de pagamento<span class="req">*</span></label>
+      <div class="upload-box" id="uploadBox">
+        <input type="file" id="comprovante" accept="image/*,.pdf" onchange="handleFile(this)">
+        <div id="uploadDefault">
+          <div class="upload-icon">↑</div>
+          <div class="upload-text">Toque para enviar o comprovante</div>
+          <div class="upload-sub">JPG, PNG ou PDF · máx. 5 MB</div>
+        </div>
+        <div class="upload-preview" id="uploadPreview">
+          <div class="upload-preview-name" id="uploadName"></div>
+          <button class="upload-preview-remove" onclick="removeFile(event)">Remover</button>
+        </div>
+      </div>
+      <div class="err-msg">Envie o comprovante de pagamento.</div>
+    </div>
+
+    <label class="confirm-check" id="f-confirm">
+      <input type="checkbox" id="confirmacao">
+      <div class="confirm-check-text">Confirmo que realizei o pagamento e que as informações fornecidas neste formulário são verdadeiras. Estou ciente de que a inscrição será validada após a confirmação do pagamento pela equipe Prime Council.</div>
+    </label>
+    <div class="err-msg" id="confirm-err" style="margin-bottom:16px">Confirme os termos para prosseguir.</div>
+
+    <p class="lgpd-note">Suas informações são utilizadas exclusivamente para gestão do evento e contato relacionado à sua inscrição, em conformidade com a LGPD. Não compartilhamos seus dados com terceiros.</p>
+  </div>
+
+</div>
+
+<div class="btn-nav" id="btnNav">
+  <button class="btn-back" id="btnBack" onclick="prevStep()" style="visibility:hidden">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Anterior
+  </button>
+  <div id="form-err" style="display:none;font-size:12px;color:var(--error);text-align:center;flex:1;padding:0 12px;line-height:1.5"></div>
+  <button class="btn-next" id="btnNext" onclick="nextStep()">
+    Próximo
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="spinner" id="spinner"></div>
+  </button>
+</div>
+
+<!-- SUCCESS -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#BFA06B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="success-title">Inscrição recebida</div>
+  <div class="success-sub">Seu formulário foi enviado com sucesso. Agora acompanhe os próximos passos.</div>
+  <div class="success-divider"></div>
+  <div class="success-steps">
+    <div class="success-steps-title">O que acontece agora</div>
+    <div class="success-step">
+      <div class="success-step-num"><span>1</span></div>
+      <div class="success-step-text">Você receberá um e-mail de confirmação com os dados da inscrição em breve.</div>
+    </div>
+    <div class="success-step">
+      <div class="success-step-num"><span>2</span></div>
+      <div class="success-step-text">A equipe Prime Council validará seu comprovante e confirmará a vaga em até 24h pelo WhatsApp.</div>
+    </div>
+    <div class="success-step">
+      <div class="success-step-num"><span>3</span></div>
+      <div class="success-step-text">Após a confirmação, você receberá as informações completas sobre data, local e programação do evento.</div>
+    </div>
+    <div class="success-step">
+      <div class="success-step-num"><span>4</span></div>
+      <div class="success-step-text">Dúvidas? Entre em contato pelo WhatsApp: <strong>(19) 99240-2233</strong></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const APPS_SCRIPT_URL = 'COLE_AQUI_A_URL_DO_WEB_APP';
+const PIX_CHAVE = '[CHAVE_PIX]';
+
+// [SEGURANÇA 1] Token estático — validação básica de origem
+const SECURITY_TOKEN = 'PRIME_SECURE_2026';
+
+// [SEGURANÇA HMAC] Secret de integridade (não de autenticação — exposto no frontend)
+const HMAC_SECRET = 'COLE_AQUI_O_MESMO_SECRET_DO_APPS_SCRIPT';
+
+// [SEGURANÇA CHALLENGE] Origem para vinculação do challenge
+const ORIGIN_VALIDO = 'aflor_prime_council';
+
+// [SEGURANÇA] Nonce aleatório forte: 32 hex chars (128 bits, CSPRNG)
+function generateNonce() {
+  const arr = new Uint8Array(16);
+  crypto.getRandomValues(arr);
+  return Array.from(arr).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// [SEGURANÇA HMAC] HMAC-SHA256 via SubtleCrypto nativo — sem libs externas
+// Chaves ordenadas para garantir determinismo (backend faz o mesmo)
+async function computeHMAC(message, secret) {
+  const enc     = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    'raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']
+  );
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(message));
+  return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// [SEGURANÇA CHALLENGE] Busca token efêmero no doGet antes do submit
+// uaHash derivado via SHA-256 para alinhar com hashString() do backend
+async function fetchChallenge() {
+  try {
+    const ua = navigator.userAgent.substring(0, 300);
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ua));
+    const uaHash = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('').substring(0,64);
+    const url = APPS_SCRIPT_URL
+      + '?action=challenge'
+      + '&ua_hash=' + encodeURIComponent(uaHash)
+      + '&origin='  + encodeURIComponent(ORIGIN_VALIDO);
+    const resp = await fetch(url, { redirect: 'follow' });
+    if (!resp.ok) return null;
+    const json = await resp.json();
+    return json.challenge_token || null;
+  } catch (_) {
+    return null;
+  }
+}
+
+// [SEGURANÇA 3] Timestamp registrado no carregamento da página — bloqueia envio antes de 3s
+const PAGE_LOAD_TS = Date.now();
+const MIN_FILL_MS = 3000;
+
+// [SEGURANÇA 4] Flag de controle de duplo submit
+let isSubmitting = false;
+
+let currentStep = 1;
+let fileData = null;
+let fileName = null;
+let fileType = null;
+
+function $(id){return document.getElementById(id)}
+
+function setProgress(step){
+  for(let i=1;i<=4;i++){
+    const dot=$('dot'+i);
+    const label=document.querySelectorAll('.step-label')[i-1];
+    dot.className='step-dot'+(i<step?' done':i===step?' active':'');
+    label.className='step-label'+(i<step?' done':i===step?' active':'');
+    if(i<4){
+      const line=$('line'+i);
+      line.className='progress-line'+(i<step?' done':'');
+    }
+  }
+}
+
+function showStep(n){
+  document.querySelectorAll('.step-panel').forEach(p=>p.classList.remove('active'));
+  $('step'+n).classList.add('active');
+  $('btnBack').style.visibility=n===1?'hidden':'visible';
+  const btn=$('btnNext');
+  if(n===4){
+    btn.innerHTML='Concluir inscrição <div class="spinner" id="spinner"></div>';
+    btn.className='btn-next gold';
+  } else {
+    btn.innerHTML='Próximo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg><div class="spinner" id="spinner"></div>';
+    btn.className='btn-next';
+  }
+  setProgress(n);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function validate(step){
+  let ok=true;
+  if(step===1){
+    ok=req('nome','f-nome','Informe seu nome completo.')&&ok;
+    ok=reqEmail('email','f-email')&&ok;
+    ok=reqPhone('whatsapp','f-whatsapp')&&ok;
+  }
+  if(step===2){
+    ok=req('empresa','f-empresa','Informe o nome da empresa.')&&ok;
+    ok=req('cidade','f-cidade','Informe a cidade.')&&ok;
+    ok=reqSel('estado','f-estado','Selecione o estado.')&&ok;
+    ok=reqSel('cargo','f-cargo','Selecione sua posição.')&&ok;
+    ok=reqSel('setor','f-setor','Selecione o setor.')&&ok;
+  }
+  if(step===3){
+    ok=reqSel('colaboradores','f-colaboradores','Selecione o porte da equipe.')&&ok;
+    ok=reqRadio('momento','f-momento','Selecione o momento da empresa.')&&ok;
+    ok=reqRadio('desafio','f-desafio','Selecione o principal desafio.')&&ok;
+    ok=reqRadio('gestao','f-gestao','Selecione a estrutura de gestão.')&&ok;
+    ok=reqSel('faturamento','f-faturamento','Selecione a faixa de faturamento.')&&ok;
+  }
+  if(step===4){
+    if(!fileData){
+      $('f-comprovante').classList.add('has-error');
+      ok=false;
+    }
+    const cb=$('confirmacao');
+    const cerr=$('confirm-err');
+    if(!cb.checked){cerr.style.display='block';ok=false;}
+    else{cerr.style.display='none';}
+  }
+  return ok;
+}
+
+function req(id,fid,msg){
+  const el=$(id),f=$(fid);
+  if(!el.value.trim()){
+    f.classList.add('has-error');
+    f.querySelector('.err-msg').textContent=msg;
+    return false;
+  }
+  f.classList.remove('has-error');return true;
+}
+function reqEmail(id,fid){
+  const el=$(id),f=$(fid);
+  const ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());
+  if(!ok){
+    f.classList.add('has-error');
+    const m=f.querySelector('.err-msg');
+    if(m)m.textContent='Informe um e-mail válido.';
+  }else{f.classList.remove('has-error');}
+  return ok;
+}
+function reqPhone(id,fid){
+  const el=$(id),f=$(fid);
+  const digits=el.value.replace(/\D/g,'');
+  const ok=digits.length>=10;
+  if(!ok){
+    f.classList.add('has-error');
+    const m=f.querySelector('.err-msg');
+    if(m)m.textContent='Informe um número válido com DDD.';
+  }else{f.classList.remove('has-error');}
+  return ok;
+}
+function reqSel(id,fid,msg){
+  const el=$(id),f=$(fid);
+  if(!el.value){
+    f.classList.add('has-error');
+    if(f.querySelector('.err-msg'))f.querySelector('.err-msg').textContent=msg;
+    return false;
+  }
+  f.classList.remove('has-error');return true;
+}
+function reqRadio(name,fid,msg){
+  const checked=document.querySelector('input[name="'+name+'"]:checked');
+  const f=$(fid);
+  if(!checked){
+    f.classList.add('has-error');
+    f.querySelector('.err-msg').textContent=msg;
+    return false;
+  }
+  f.classList.remove('has-error');return true;
+}
+
+function nextStep(){
+  if(!validate(currentStep))return;
+  if(currentStep<4){currentStep++;showStep(currentStep);}
+  else{submitForm();}
+}
+function prevStep(){if(currentStep>1){currentStep--;showStep(currentStep);}}
+
+document.querySelectorAll('.radio-opt').forEach(opt=>{
+  opt.addEventListener('click',function(){
+    const input=this.querySelector('input[type=radio]');
+    const name=input.name;
+    document.querySelectorAll('input[name="'+name+'"]').forEach(r=>{
+      r.closest('.radio-opt').classList.remove('selected');
+    });
+    this.classList.add('selected');
+    input.checked=true;
+    if(name==='desafio'){
+      const wrap=$('desafio-outro-wrap');
+      wrap.className='other-wrap'+(input.value==='outro'?' visible':'');
+    }
+    const fid='f-'+name;
+    if($(fid))$(fid).classList.remove('has-error');
+  });
+});
+
+$('whatsapp').addEventListener('input',function(){
+  let v=this.value.replace(/\D/g,'');
+  if(v.length>11)v=v.slice(0,11);
+  if(v.length>6)v='('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+  else if(v.length>2)v='('+v.slice(0,2)+') '+v.slice(2);
+  else if(v.length>0)v='('+v;
+  this.value=v;
+});
+
+function handleFile(input){
+  const file=input.files[0];
+  if(!file)return;
+  if(file.size>5*1024*1024){alert('Arquivo muito grande. Limite: 5 MB.');input.value='';return;}
+  fileName=file.name;fileType=file.type;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    fileData=e.target.result;
+    $('uploadDefault').style.display='none';
+    $('uploadPreview').classList.add('visible');
+    $('uploadName').textContent=fileName;
+    $('uploadBox').classList.add('has-file');
+    $('f-comprovante').classList.remove('has-error');
+  };
+  reader.readAsDataURL(file);
+}
+function removeFile(e){
+  e.preventDefault();e.stopPropagation();
+  fileData=null;fileName=null;fileType=null;
+  $('comprovante').value='';
+  $('uploadDefault').style.display='block';
+  $('uploadPreview').classList.remove('visible');
+  $('uploadBox').classList.remove('has-file');
+}
+
+function copyPix(){
+  navigator.clipboard.writeText(PIX_CHAVE).then(()=>{
+    const btn=document.querySelector('.pix-copy-btn');
+    btn.textContent='Copiado!';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='Copiar';btn.classList.remove('copied');},2000);
+  });
+}
+
+// [SEGURANÇA 6] Sanitização básica: remove caracteres perigosos de strings antes do envio
+function sanitize(str){
+  if(typeof str !== 'string') return str;
+  return str.replace(/[<>{}"]/g, '').trim();
+}
+
+function getRadioVal(name){
+  const c=document.querySelector('input[name="'+name+'"]:checked');
+  if(!c)return '';
+  if(c.value==='outro')return $('desafio-outro').value||'Outro';
+  return c.value;
+}
+
+function showFormError(msg){
+  const el=$('form-err');
+  if(!el)return;
+  el.textContent=msg;
+  el.style.display=msg?'block':'none';
+}
+
+async function submitForm(){
+  // [SEGURANÇA 4] Bloqueia duplo submit
+  if(isSubmitting) return;
+
+  // [SEGURANÇA 2] Verifica honeypot — se preenchido, é bot; falha silenciosa
+  const hp = document.getElementById('hp_website');
+  if(hp && hp.value.length > 0) return;
+
+  // [SEGURANÇA 3] Bloqueia envio se ocorrer antes de 3 segundos do carregamento
+  if(Date.now() - PAGE_LOAD_TS < MIN_FILL_MS) return;
+
+  // [SEGURANÇA 5] Validação mínima dos campos críticos antes de qualquer envio
+  const nomeVal = document.getElementById('nome').value.trim();
+  const emailVal = document.getElementById('email').value.trim();
+  const waVal = document.getElementById('whatsapp').value.replace(/\D/g,'');
+  if(!nomeVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal) || waVal.length < 10) return;
+
+  // TODO: integrar reCAPTCHA v3 aqui antes de prosseguir com o envio
+
+  isSubmitting = true;
+  showFormError('');
+
+  const btn=$('btnNext');
+  btn.disabled=true;
+  const sp=document.createElement('div');sp.className='spinner visible';
+  btn.innerHTML='Enviando... ';btn.appendChild(sp);
+
+  // [SEGURANÇA] Fetch challenge efêmero antes de montar o payload
+  const challengeToken = await fetchChallenge();
+  if (!challengeToken) {
+    isSubmitting = false;
+    btn.disabled = false;
+    btn.innerHTML = 'Concluir inscrição <div class="spinner" id="spinner"></div>';
+    showFormError('Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.');
+    return;
+  }
+
+  // [SEGURANÇA] Coleta de contexto para fingerprint e vinculação do challenge
+  const userAgent = navigator.userAgent.substring(0, 300);
+  const userTZ    = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+
+  // [SEGURANÇA 6] sanitize() + campos de contexto e challenge
+  const payloadBase = {
+    _token:     SECURITY_TOKEN,
+    _origin:    ORIGIN_VALIDO,
+    _ts:        Date.now(),
+    _nonce:     generateNonce(),
+    _challenge: challengeToken,
+    _ua:        userAgent,
+    _tz:        userTZ,
+    nome:       sanitize($('nome').value.trim()),
+    email:      sanitize($('email').value.trim()),
+    whatsapp:   sanitize($('whatsapp').value.trim()),
+    empresa:    sanitize($('empresa').value.trim()),
+    cidade:     sanitize($('cidade').value.trim()),
+    estado:     $('estado').value,
+    cargo:      $('cargo').value,
+    setor:      $('setor').value,
+    colaboradores: $('colaboradores').value,
+    momento:    getRadioVal('momento'),
+    desafio:    getRadioVal('desafio'),
+    gestao:     getRadioVal('gestao'),
+    faturamento:$('faturamento').value,
+    como_soube: $('como_soube').value||'',
+    comprovante:      fileData,
+    comprovante_nome: sanitize(fileName||''),
+    comprovante_tipo: fileType,
+  };
+
+  // [SEGURANÇA HMAC] Ordena chaves e assina (integridade, não autenticação)
+  const sortedKeys = Object.keys(payloadBase).sort();
+  const sorted     = {};
+  sortedKeys.forEach(k => sorted[k] = payloadBase[k]);
+  const sig     = await computeHMAC(JSON.stringify(sorted), HMAC_SECRET);
+  const payload = { ...payloadBase, signature: sig };
+
+  try{
+    const resp = await fetch(APPS_SCRIPT_URL,{
+      method:'POST',
+      headers:{'Content-Type':'text/plain','x-aflor-token':SECURITY_TOKEN},
+      body:JSON.stringify(payload),
+      redirect:'follow'
+    });
+    const result = await resp.json();
+    if(!result.success) throw new Error('backend');
+  }catch(_){
+    isSubmitting = false;
+    btn.disabled = false;
+    btn.innerHTML = 'Concluir inscrição <div class="spinner" id="spinner"></div>';
+    showFormError('Ocorreu um erro ao enviar a inscrição. Verifique sua conexão e tente novamente.');
+    return;
+  }
+
+  $('mainCard').style.display='none';
+  $('btnNav').style.display='none';
+  $('successScreen').classList.add('visible');
+  setProgress(5);
+}
+</script>
+</body>
+</html>

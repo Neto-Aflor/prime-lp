@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição — Prime Council</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER FIXO FORM
+     ============================================================ -->
+<header class="site-header">
+  <div class="site-header-inner">
+
+    <div class="header-brand">
+      <div class="logo-mark">
+        <div class="logo-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="header-brand-text">
+        <h2>Prime Council</h2>
+      </div>
+    </div>
+
+    <div class="header-event">
+      <span><strong>Workshop: Conselho Executivo Prime Council</strong></span>
+      <span class="h-sep"></span>
+      <strong>12 Jun 2026</strong>
+      <span class="h-sep"></span>
+      <span><strong>09h–17h · Campinas, SP</strong></span>
+    </div>
+
+    <div class="header-ctas">
+      <a href="https://neto-aflor.github.io/prime-IRFE/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn btn-outline-inv btn-sm">
+        <strong>Protocolo IRFE →</strong>
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<div class="header-rule"></div>
+<div class="header-rule-gold"></div>
+
+<!-- ══ DARK HERO ════════════════════════════════════════════════ -->
+<div class="irfe-hero">
+  <div class="irfe-hero-inner">
+
+    <div class="irfe-event-title">
+      <span class="irfe-eyebrow"><strong>Processo de Inscrição · Governança e Decisão Estratégica</strong></span>
+      <h2 class="irfe-event-h2">Workshop: <em>Conselho Executivo Prime Council</em></h2>
+      <div class="irfe-event-meta">
+        <span><strong>12 de Junho de 2026</strong></span>
+        <span class="irfe-h-sep"></span>
+        <span><strong>09h às 17h</strong></span>
+        <span class="irfe-h-sep"></span>
+        <span><strong>Campinas · SP</strong></span>
+        <span class="irfe-h-sep"></span>
+        <span><strong>Vagas Limitadas · Presencial</strong></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="progress-wrap">
+  <div class="time-badge">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    4 etapas · aproximadamente 5 minutos
+  </div>
+  <div class="progress-steps">
+    <div class="step-dot active" id="dot1"><span>1</span></div>
+    <div class="progress-line" id="line1"></div>
+    <div class="step-dot" id="dot2"><span>2</span></div>
+    <div class="progress-line" id="line2"></div>
+    <div class="step-dot" id="dot3"><span>3</span></div>
+    <div class="progress-line" id="line3"></div>
+    <div class="step-dot" id="dot4"><span>4</span></div>
+  </div>
+  <div class="step-labels">
+    <div class="step-label active">ID</div>
+    <div class="step-label">Empresa</div>
+    <div class="step-label">Perfil</div>
+    <div class="step-label">Pagamento</div>
+  </div>
+</div>
+
+<div class="card" id="mainCard">
+
+  <!-- STEP 1: IDENTIFICAÇÃO -->
+  <div class="step-panel active" id="step1">
+    <div class="step-header">
+      <div class="step-num">Etapa 1 de 4</div>
+      <div class="step-title">Identificação</div>
+      <div class="step-sub">Dados para contato e confirmação da inscrição.</div>
+    </div>
+    <div class="field" id="f-nome">
+      <label>Nome completo<span class="req">*</span></label>
+      <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name">
+      <div class="err-msg">Informe seu nome completo.</div>
+    </div>
+    <div class="field" id="f-email">
+      <label>E-mail<span class="req">*</span></label>
+      <input type="email" id="email" placeholder="seu@email.com.br" autocomplete="email">
+      <div class="err-msg">Informe um e-mail válido.</div>
+    </div>
+    <div class="field" id="f-whatsapp">
+      <label>WhatsApp<span class="req">*</span></label>
+      <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel" maxlength="15">
+      <div class="err-msg">Informe um número válido com DDD.</div>
+    </div>
+    <!-- [SEGURANÇA 2] Honeypot anti-bot: campo invisível para humanos, preenchido automaticamente por bots -->
+    <input type="text" name="website" id="hp_website" autocomplete="off"
+           style="display:none;position:absolute;left:-9999px;opacity:0;height:0;width:0;"
+           tabindex="-1" aria-hidden="true">
+  </div>
+  <div class="step-panel" id="step2">
+    <div class="step-header">
+      <div class="step-num">Etapa 2 de 4</div>
+      <div class="step-title">Sua empresa</div>
+      <div class="step-sub">Informações para contextualizar seu perfil empresarial.</div>
+    </div>
+    <div class="field" id="f-empresa">
+      <label>Empresa<span class="req">*</span></label>
+      <input type="text" id="empresa" placeholder="Razão social ou nome fantasia">
+      <div class="err-msg">Informe o nome da empresa.</div>
+    </div>
+    <div class="row-2">
+      <div class="field" id="f-cidade">
+        <label>Cidade<span class="req">*</span></label>
+        <input type="text" id="cidade" placeholder="Ex. Campinas">
+        <div class="err-msg">Informe a cidade.</div>
+      </div>
+      <div class="field" id="f-estado">
+        <label>Estado<span class="req">*</span></label>
+        <select id="estado">
+          <option value="">Selecione</option>
+          <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+          <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+          <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+          <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+          <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+          <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+          <option selected>SP</option><option>SE</option><option>TO</option>
+        </select>
+        <div class="err-msg">Selecione o estado.</div>
+      </div>
+    </div>
+    <div class="field" id="f-cargo">
+      <label>Posição na empresa<span class="req">*</span></label>
+      <select id="cargo">
+        <option value="">Selecione</option>
+        <option>Proprietário / Fundador</option>
+        <option>Sócio</option>
+        <option>CEO / Diretor Executivo</option>
+        <option>Diretor (área)</option>
+        <option>Outro</option>
+      </select>
+      <div class="err-msg">Selecione sua posição.</div>
+    </div>
+    <div class="field" id="f-setor">
+      <label>Setor<span class="req">*</span></label>
+      <select id="setor">
+        <option value="">Selecione</option>
+        <option>Agronegócio</option>
+        <option>Construção Civil</option>
+        <option>Educação</option>
+        <option>Saúde</option>
+        <option>Indústria</option>
+        <option>Logística e Transporte</option>
+        <option>Serviços Profissionais</option>
+        <option>Tecnologia</option>
+        <option>Varejo e Comércio</option>
+        <option>Outro</option>
+      </select>
+      <div class="err-msg">Selecione o setor.</div>
+    </div>
+  </div>
+
+  <!-- STEP 3: QUALIFICAÇÃO -->
+  <div class="step-panel" id="step3">
+    <div class="step-header">
+      <div class="step-num">Etapa 3 de 4</div>
+      <div class="step-title">Perfil estratégico</div>
+      <div class="step-sub">As respostas determinam a elegibilidade. Seja preciso.</div>
+    </div>
+
+    <div class="field" id="f-colaboradores">
+      <label>Número de colaboradores<span class="req">*</span></label>
+      <select id="colaboradores">
+        <option value="">Selecione</option>
+        <option>Até 50</option>
+        <option>51 a 100</option>
+        <option>101 a 200</option>
+        <option>Acima de 200</option>
+      </select>
+      <div class="err-msg">Selecione o porte da equipe.</div>
+    </div>
+
+
+    <div class="field" id="f-desafio">
+      <label>Principal desafio estratégico<span class="req">*</span></label>
+      <div class="radio-group" id="rg-desafio">
+        <label class="radio-opt"><input type="radio" name="desafio" value="pessoas"><div class="radio-dot"></div><span class="radio-label">Gestão de pessoas e cultura</span></label>
+        <label class="radio-opt"><input type="radio" name="desafio" value="crescimento"><div class="radio-dot"></div><span class="radio-label">Crescimento e novos mercados</span></label>
+        <label class="radio-opt"><input type="radio" name="desafio" value="processos"><div class="radio-dot"></div><span class="radio-label">Processos, eficiência e custos</span></label>
+        <label class="radio-opt"><input type="radio" name="desafio" value="sucessao"><div class="radio-dot"></div><span class="radio-label">Sucessão ou transição societária</span></label>
+        <label class="radio-opt"><input type="radio" name="desafio" value="gestao_financeira"><div class="radio-dot"></div><span class="radio-label">Gestão financeira</span></label>
+      </div>
+      <div class="err-msg">Selecione o principal desafio.</div>
+    </div>
+
+    <div class="field" id="f-gestao">
+      <label>Estrutura de gestão atual<span class="req">*</span></label>
+      <div class="radio-group" id="rg-gestao">
+        <label class="radio-opt"><input type="radio" name="gestao" value="centralizada"><div class="radio-dot"></div><span class="radio-label">Centralizada no proprietário ou fundador</span></label>
+        <label class="radio-opt"><input type="radio" name="gestao" value="diretores"><div class="radio-dot"></div><span class="radio-label">Com diretores, sem conselho formal</span></label>
+        <label class="radio-opt"><input type="radio" name="gestao" value="governanca"><div class="radio-dot"></div><span class="radio-label">Já possui algum modelo de governança</span></label>
+        <label class="radio-opt"><input type="radio" name="gestao" value="estruturando"><div class="radio-dot"></div><span class="radio-label">Em processo de estruturação</span></label>
+      </div>
+      <div class="err-msg">Selecione a estrutura de gestão.</div>
+    </div>
+
+    <div class="field" id="f-faturamento">
+      <label>Faturamento anual aproximado<span class="req">*</span></label>
+      <select id="faturamento">
+        <option value="">Selecione</option>
+        <option>Até R$ 1 milhão</option>
+        <option>R$ 1M a R$ 5M</option>
+        <option>R$ 5M a R$ 20M</option>
+        <option>R$ 20M a R$ 60M</option>
+        <option>Acima de R$ 60M</option>
+        <option>Prefiro não informar</option>
+      </select>
+      <div class="err-msg">Selecione a faixa de faturamento.</div>
+    </div>
+
+    <div class="field">
+      <label>Como ficou sabendo do evento?</label>
+      <select id="como_soube">
+        <option value="">Selecione (opcional)</option>
+        <option>Indicação de conhecido</option>
+        <option>LinkedIn</option>
+        <option>Instagram</option>
+        <option>WhatsApp</option>
+        <option>Outro</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- STEP 4: PAGAMENTO -->
+  <div class="step-panel" id="step4">
+    <div class="step-header">
+      <div class="step-num">Etapa 4 de 4</div>
+      <div class="step-title">Garantia de vaga</div>
+      <div class="step-sub">Realize o pagamento e envie o comprovante para concluir.</div>
+    </div>
+
+    <div class="pix-box">
+      <div class="pix-header">
+        <div class="pix-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#BFA06B" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="pix-title">Pagamento via PIX</div>
+      </div>
+
+      <div class="pix-row">
+        <span class="pix-row-label">Valor</span>
+        <span class="pix-row-value" id="pix-valor">R$ 960,00</span>
+      </div>
+      <div class="pix-row">
+        <span class="pix-row-label">Chave PIX</span>
+        <span class="pix-row-value" id="pix-chave">[CHAVE_PIX]</span>
+        <button class="pix-copy-btn" onclick="copyPix()">Copiar</button>
+      </div>
+      <div class="pix-row">
+        <span class="pix-row-label">Favorecido</span>
+        <span class="pix-row-value">Prime Council — CNPJ [XX.XXX.XXX/XXXX-XX]</span>
+      </div>
+      <div class="pix-row">
+        <span class="pix-row-label">Prazo</span>
+        <span class="pix-row-value">Vaga reservada somente após confirmação</span>
+      </div>
+
+      <div class="pix-qr" id="pix-qr-wrap">
+        <!-- Substitua por: <img src="data:image/png;base64,..." width="120"> -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#DDD9D0" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3z M17 17h3v3h-3z"/></svg>
+        <div class="pix-qr-placeholder">QR Code PIX<br>substituir aqui</div>
+      </div>
+      <div class="pix-note">Após realizar o pagamento, envie o comprovante no campo abaixo. A confirmação da inscrição será feita em até 24h pelo WhatsApp informado.</div>
+    </div>
+
+    <div class="field" id="f-comprovante">
+      <label>Comprovante de pagamento<span class="req">*</span></label>
+      <div class="upload-box" id="uploadBox">
+        <input type="file" id="comprovante" accept="image/*,.pdf" onchange="handleFile(this)">
+        <div id="uploadDefault">
+          <div class="upload-icon">↑</div>
+          <div class="upload-text">Toque para enviar o comprovante</div>
+          <div class="upload-sub">JPG, PNG ou PDF · máx. 5 MB</div>
+        </div>
+        <div class="upload-preview" id="uploadPreview">
+          <div class="upload-preview-name" id="uploadName"></div>
+          <button class="upload-preview-remove" onclick="removeFile(event)">Remover</button>
+        </div>
+      </div>
+      <div class="err-msg">Envie o comprovante de pagamento.</div>
+    </div>
+
+    <label class="confirm-check" id="f-confirm">
+      <input type="checkbox" id="confirmacao">
+      <div class="confirm-check-text">Confirmo que realizei o pagamento e que as informações fornecidas neste formulário são verdadeiras. Estou ciente de que a inscrição será validada após a confirmação do pagamento pela equipe Prime Council.</div>
+    </label>
+    <div class="err-msg" id="confirm-err" style="margin-bottom:16px">Confirme os termos para prosseguir.</div>
+
+    <p class="lgpd-note">Suas informações são utilizadas exclusivamente para gestão do evento e contato relacionado à sua inscrição, em conformidade com a LGPD. Não compartilhamos seus dados com terceiros.</p>
+  </div>
+
+</div>
+
+<div class="btn-nav" id="btnNav" style="gap:12px">
+  <button class="btn-back" id="btnBack" onclick="prevStep()" style="visibility:hidden">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Anterior
+  </button>
+  <div id="form-err" style="display:none;font-size:12px;color:var(--error);text-align:center;flex:1;padding:0 12px;line-height:1.5"></div>
+  <button class="btn-next" id="btnNext" onclick="nextStep()">
+    Próximo
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="spinner" id="spinner"></div>
+  </button>
+</div>
+
+<!-- SUCCESS -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#BFA06B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="success-title">Inscrição recebida</div>
+  <div class="success-sub">Seu formulário foi enviado com sucesso. Agora acompanhe os próximos passos.</div>
+  <div class="success-divider"></div>
+  <div class="success-steps">
+    <div class="success-steps-title">O que acontece agora</div>
+    <div class="success-step">
+      <div class="success-step-num"><span>1</span></div>
+      <div class="success-step-text">Você receberá um e-mail de confirmação com os dados da inscrição em breve.</div>
+    </div>
+    <div class="success-step">
+      <div class="success-step-num"><span>2</span></div>
+      <div class="success-step-text">A equipe Prime Council validará seu comprovante e confirmará a vaga em até 24h pelo WhatsApp.</div>
+    </div>
+    <div class="success-step">
+      <div class="success-step-num"><span>3</span></div>
+      <div class="success-step-text">Após a confirmação, você receberá as informações completas sobre data, local e programação do evento.</div>
+    </div>
+    <div class="success-step">
+      <div class="success-step-num"><span>4</span></div>
+      <div class="success-step-text">Dúvidas? Entre em contato pelo WhatsApp: <strong>(19) 99240-2233</strong></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
